@@ -13,9 +13,10 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
+        config.applyPermitDefaultValues();
         config.addAllowedHeader("*");
         config.addAllowedMethod("GET");
-         config.addAllowedOrigin("*");
+         config.addAllowedOriginPattern("*");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
