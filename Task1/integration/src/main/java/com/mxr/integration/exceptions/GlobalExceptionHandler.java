@@ -11,10 +11,37 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ResponseEntity<ErrorResponse> handleMissingServletRequestParameterException(MissingServletRequestParameterException ex){
         ErrorResponse response = new ErrorResponse(
-            "BAD_REQUEST",
+            "error",
             "Required request parameter is missing"
         );
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         
+    }
+
+    @ExceptionHandler(InvalidNameException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidNameException(InvalidNameException ex){
+        ErrorResponse response = new ErrorResponse(
+            "error",
+            ex.getMessage()
+        );
+        return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler(MissingOrEmptyNameException.class)
+    public ResponseEntity<ErrorResponse> handleMissingOrEmptyNameException(MissingOrEmptyNameException ex){
+        ErrorResponse response = new ErrorResponse(
+            "error",
+            ex.getMessage()
+        );
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(MissingGenderizeDataException.class)
+    public ResponseEntity<ErrorResponse> handleMissingGenderizeDataException(MissingGenderizeDataException ex){
+        ErrorResponse response = new ErrorResponse(
+            "error",
+            ex.getMessage()
+        );
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
