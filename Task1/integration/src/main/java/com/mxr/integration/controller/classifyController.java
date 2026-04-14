@@ -38,8 +38,8 @@ public class classifyController {
                 .gender(response.getGender())
                 .probability(response.getProbability())
                 .sampleSize(response.getSampleSize())
-                .isConfident(isConfident)
-                .processedAt(Instant.now())
+                .confident(isConfident)
+                .processedAt(Instant.now().toString())
                 .build();
     }
 
