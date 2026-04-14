@@ -1,14 +1,17 @@
 package com.mxr.integration.Response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
 public class GenderizeResponse {
-    public int count;
+    @JsonProperty("count")
+    public int sampleSize;
     public String name;
     public String gender;
     public double probability;

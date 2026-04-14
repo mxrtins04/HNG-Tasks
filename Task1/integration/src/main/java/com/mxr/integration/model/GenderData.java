@@ -1,16 +1,19 @@
 package com.mxr.integration.model;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.Instant;
 
 @Data
-@Getter
-public class data {
+@Builder
+public class GenderData {
     public String name;
     public String gender;
     public double probability;
+
+    @JsonProperty("sample_size")
     public int sampleSize;
     public boolean isConfident;
-    @CreationTimeStamp
-    public String processedAt;
+    public Instant processedAt;
 }

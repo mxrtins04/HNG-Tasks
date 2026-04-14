@@ -31,7 +31,7 @@ public class IntegrationService {
         }
         
         String gender = genderizeResponse.getGender();
-        int count = genderizeResponse.getCount();
+        int count = genderizeResponse.getSampleSize();
        
 
         if( gender == null || count == 0) {
